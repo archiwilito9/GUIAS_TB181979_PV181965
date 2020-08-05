@@ -21,6 +21,9 @@ insert into ventas_electrodomesticos values(5,'6985847-8','4758121280-193','Past
 
 select * from ventas_electrodomesticos
 
+----------------------------------------
+--======================================
+----------------------------------------
 create database db_muebles
 go
 use db_muebles
@@ -43,3 +46,30 @@ insert into ventas_muebles values(4,'9658745-7','3658090976-145','Rodriguez Aria
 insert into ventas_muebles values(5,'6985847-8','4758121280-193','Pastori','Xavier Iñaki',1056.4)
 
 select * from ventas_muebles
+
+----------------------------------------
+--======================================
+----------------------------------------
+
+create database db_tecnologia
+go
+use db_tecnologia
+
+create table venta_tecnologia
+(
+idempleado integer not null,
+dui varchar(9) not null,
+nit varchar(14) not null,
+apellidos varchar(50) not null,
+nombres varchar(50) not null,
+ventas decimal(10,2) not null,
+constraint pk_empleado primary key(idempleado)
+)
+
+insert into venta_tecnologia values(1,'0127859-5','0641140877-193','Hernandez Ramirez','Carlos Roberto',332.23)
+insert into venta_tecnologia values(2,'1294587-6','7894120652-147','Perez Hernandez','Maria Leticia',343.22)
+insert into venta_tecnologia values(3,'4589785-8','2365110578-145','Carranza','Pablo Jose',1022.34)
+insert into venta_tecnologia values(4,'9658745-7','3658090976-145','Rodriguez Arias','Christian Alberto',323.50)
+insert into venta_tecnologia values(5,'6985847-8','4758121280-193','Pastori','Xavier Iñaki',212.3)
+
+select * from venta_tecnologia

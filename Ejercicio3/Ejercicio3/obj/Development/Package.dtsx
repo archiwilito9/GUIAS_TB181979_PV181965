@@ -11,8 +11,8 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{EF6B58AB-DBDA-44DC-8431-490687E75B79}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{BA2A56DA-17EC-4540-912F-3181CA8FF217}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -44,6 +44,16 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Data Source=MARVIN-PC;Initial Catalog=db_muebles;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MARVIN-PC.db_tecnologia]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7BBDC987-6A67-43BD-BE9C-2ACF832E20A9}"
+      DTS:ObjectName="MARVIN-PC.db_tecnologia">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=MARVIN-PC;Initial Catalog=db_tecnologia;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -114,7 +124,7 @@
                       refId="Package\Tarea Flujo de datos\Agrupamiento.Inputs[Entrada de agregado 1].Columns[nit]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="14"
+                      cachedLength="50"
                       cachedName="nit"
                       lineageId="Package\Tarea Flujo de datos\Unión de BD's.Outputs[Salida de Unión de todo 1].Columns[nit]" />
                     <inputColumn
@@ -216,7 +226,7 @@
                       refId="Package\Tarea Flujo de datos\Agrupamiento.Outputs[Salida de agregado 1].Columns[nit]"
                       codePage="1252"
                       dataType="str"
-                      length="14"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Agrupamiento.Outputs[Salida de agregado 1].Columns[nit]"
                       name="nit">
                       <properties>
@@ -782,6 +792,232 @@
               </outputs>
             </component>
             <component
+              refId="Package\Tarea Flujo de datos\BD Tecnologia"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="BD Tecnologia"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[venta_tecnologia]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\BD Tecnologia.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[MARVIN-PC.db_tecnologia]"
+                  connectionManagerRefId="Package.ConnectionManagers[MARVIN-PC.db_tecnologia]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].Columns[idempleado]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].ExternalColumns[idempleado]"
+                      lineageId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].Columns[idempleado]"
+                      name="idempleado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].Columns[dui]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].ExternalColumns[dui]"
+                      length="9"
+                      lineageId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].Columns[dui]"
+                      name="dui"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].Columns[nit]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].ExternalColumns[nit]"
+                      length="14"
+                      lineageId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].Columns[nit]"
+                      name="nit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].Columns[apellidos]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].ExternalColumns[apellidos]"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].Columns[apellidos]"
+                      name="apellidos"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].Columns[nombres]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].ExternalColumns[nombres]"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].Columns[nombres]"
+                      name="nombres"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].Columns[ventas]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].ExternalColumns[ventas]"
+                      lineageId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].Columns[ventas]"
+                      name="ventas"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].ExternalColumns[idempleado]"
+                      dataType="i4"
+                      name="idempleado" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].ExternalColumns[dui]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="dui" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].ExternalColumns[nit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="nit" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].ExternalColumns[apellidos]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="apellidos" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].ExternalColumns[nombres]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="nombres" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].ExternalColumns[ventas]"
+                      dataType="numeric"
+                      name="ventas"
+                      precision="10"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de error de origen de OLE DB].Columns[idempleado]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de error de origen de OLE DB].Columns[idempleado]"
+                      name="idempleado" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de error de origen de OLE DB].Columns[dui]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      lineageId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de error de origen de OLE DB].Columns[dui]"
+                      name="dui" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de error de origen de OLE DB].Columns[nit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      lineageId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de error de origen de OLE DB].Columns[nit]"
+                      name="nit" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de error de origen de OLE DB].Columns[apellidos]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de error de origen de OLE DB].Columns[apellidos]"
+                      name="apellidos" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de error de origen de OLE DB].Columns[nombres]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de error de origen de OLE DB].Columns[nombres]"
+                      name="nombres" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de error de origen de OLE DB].Columns[ventas]"
+                      dataType="numeric"
+                      lineageId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de error de origen de OLE DB].Columns[ventas]"
+                      name="ventas"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Tarea Flujo de datos\Conversión de datos"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
@@ -804,7 +1040,7 @@
                       refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[nit]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="14"
+                      cachedLength="50"
                       cachedName="nit"
                       lineageId="Package\Tarea Flujo de datos\Ordenar datos.Outputs[Salida de ordenación].Columns[nit]" />
                     <inputColumn
@@ -1171,7 +1407,7 @@
                       refId="Package\Tarea Flujo de datos\Ordenar datos.Inputs[Entrada de ordenación].Columns[nit]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="14"
+                      cachedLength="50"
                       cachedName="nit"
                       lineageId="Package\Tarea Flujo de datos\Agrupamiento.Outputs[Salida de agregado 1].Columns[nit]">
                       <properties>
@@ -1281,7 +1517,7 @@
                       refId="Package\Tarea Flujo de datos\Ordenar datos.Outputs[Salida de ordenación].Columns[nit]"
                       codePage="1252"
                       dataType="str"
-                      length="14"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Ordenar datos.Outputs[Salida de ordenación].Columns[nit]"
                       name="nit">
                       <properties>
@@ -1544,9 +1780,105 @@
                 </input>
                 <input
                   refId="Package\Tarea Flujo de datos\Unión de BD's.Inputs[Entrada de Unión de todo 3]"
-                  dangling="true"
                   hasSideEffects="true"
                   name="Entrada de Unión de todo 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de BD's.Inputs[Entrada de Unión de todo 3].Columns[idempleado]"
+                      cachedDataType="i4"
+                      cachedName="idempleado"
+                      lineageId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].Columns[idempleado]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de BD's.Outputs[Salida de Unión de todo 1].Columns[idempleado]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de BD's.Inputs[Entrada de Unión de todo 3].Columns[dui]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="dui"
+                      lineageId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].Columns[dui]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de BD's.Outputs[Salida de Unión de todo 1].Columns[dui]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de BD's.Inputs[Entrada de Unión de todo 3].Columns[nit]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="14"
+                      cachedName="nit"
+                      lineageId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].Columns[nit]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de BD's.Outputs[Salida de Unión de todo 1].Columns[nit]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de BD's.Inputs[Entrada de Unión de todo 3].Columns[apellidos]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="apellidos"
+                      lineageId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].Columns[apellidos]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de BD's.Outputs[Salida de Unión de todo 1].Columns[apellidos]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de BD's.Inputs[Entrada de Unión de todo 3].Columns[nombres]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="nombres"
+                      lineageId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].Columns[nombres]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de BD's.Outputs[Salida de Unión de todo 1].Columns[nombres]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de BD's.Inputs[Entrada de Unión de todo 3].Columns[ventas]"
+                      cachedDataType="numeric"
+                      cachedName="ventas"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB].Columns[ventas]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de BD's.Outputs[Salida de Unión de todo 1].Columns[ventas]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Tarea Flujo de datos\Unión de BD's.Inputs[Entrada de Unión de todo 4]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Entrada de Unión de todo 4">
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -1571,7 +1903,7 @@
                       refId="Package\Tarea Flujo de datos\Unión de BD's.Outputs[Salida de Unión de todo 1].Columns[nit]"
                       codePage="1252"
                       dataType="str"
-                      length="14"
+                      length="50"
                       lineageId="Package\Tarea Flujo de datos\Unión de BD's.Outputs[Salida de Unión de todo 1].Columns[nit]"
                       name="nit" />
                     <outputColumn
@@ -1628,6 +1960,11 @@
               name="Salida de origen de OLE DB"
               startId="Package\Tarea Flujo de datos\BD Muebles.Outputs[Salida de origen de OLE DB]" />
             <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB2]"
+              endId="Package\Tarea Flujo de datos\Unión de BD's.Inputs[Entrada de Unión de todo 3]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Tarea Flujo de datos\BD Tecnologia.Outputs[Salida de origen de OLE DB]" />
+            <path
               refId="Package\Tarea Flujo de datos.Paths[Salida de Unión de todo 1]"
               endId="Package\Tarea Flujo de datos\Agrupamiento.Inputs[Entrada de agregado 1]"
               name="Salida de Unión de todo 1"
@@ -1664,11 +2001,11 @@
         <NodeLayout
           Size="172,42"
           Id="Package\Tarea Flujo de datos\BD Electrodomesticos"
-          TopLeft="169,35" />
+          TopLeft="69,24" />
         <NodeLayout
           Size="181,42"
           Id="Package\Tarea Flujo de datos\BD Muebles"
-          TopLeft="473,35" />
+          TopLeft="342,31" />
         <NodeLayout
           Size="182,42"
           Id="Package\Tarea Flujo de datos\Conversión de datos"
@@ -1691,30 +2028,18 @@
           TopLeft="271,400" />
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB1]"
-          TopLeft="563.5,77">
+          TopLeft="418.75,73">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-128.5,40"
+              EndConnector="0,44"
               Start="0,0"
-              End="-128.5,32.5">
+              End="0,36.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.7450199203187" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.7450199203187"
-                    Point2="0,23.7450199203187"
-                    Point3="-4,23.7450199203187" />
-                  <mssgle:LineSegment
-                    End="-124.5,23.7450199203187" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-124.5,23.7450199203187"
-                    Point2="-128.5,23.7450199203187"
-                    Point3="-128.5,27.7450199203187" />
-                  <mssgle:LineSegment
-                    End="-128.5,32.5" />
+                    End="0,36.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1725,30 +2050,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB]"
-          TopLeft="255,77">
+          TopLeft="155,66">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="156.5,40"
+              EndConnector="233,51"
               Start="0,0"
-              End="156.5,32.5">
+              End="233,43.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16" />
+                    End="0,26.2749003984064" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16"
-                    Point2="0,20"
-                    Point3="4,20" />
+                    Point1="0,26.2749003984064"
+                    Point2="0,30.2749003984064"
+                    Point3="4,30.2749003984064" />
                   <mssgle:LineSegment
-                    End="152.5,20" />
+                    End="229,30.2749003984064" />
                   <mssgle:CubicBezierSegment
-                    Point1="152.5,20"
-                    Point2="156.5,20"
-                    Point3="156.5,24" />
+                    Point1="229,30.2749003984064"
+                    Point2="233,30.2749003984064"
+                    Point3="233,34.2749003984064" />
                   <mssgle:LineSegment
-                    End="156.5,32.5" />
+                    End="233,43.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1881,6 +2206,44 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Tarea Flujo de datos\BD Tecnologia"
+          TopLeft="598,33" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB2]"
+          TopLeft="674.5,75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-227.75,42"
+              Start="0,0"
+              End="-227.75,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5076923076923" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.5076923076923"
+                    Point2="0,27.5076923076923"
+                    Point3="-4,27.5076923076923" />
+                  <mssgle:LineSegment
+                    End="-223.75,27.5076923076923" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-223.75,27.5076923076923"
+                    Point2="-227.75,27.5076923076923"
+                    Point3="-227.75,31.5076923076923" />
+                  <mssgle:LineSegment
+                    End="-227.75,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -1912,6 +2275,19 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Tarea Flujo de datos\Destino Excel Ventas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\BD Tecnologia">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
