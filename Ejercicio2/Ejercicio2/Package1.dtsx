@@ -1,0 +1,731 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/4/2020 10:59:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MARVIN-PC"
+  DTS:CreatorName="Marvin-PC\Marvin"
+  DTS:Description="DTS Wizard-generated package"
+  DTS:DTSID="{88328AC3-A932-4A66-B40A-E73DBD941C4B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="17418"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Package1"
+  DTS:VersionGUID="{EDC55296-42D2-4285-BA99-121E1913873F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionExcel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{8ABF5796-B8DF-40CB-85F1-7D7F03DB2FCA}"
+      DTS:ObjectName="DestinationConnectionExcel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Marvin\Desktop\UDB\Datawarehouse y Minería de datos\Proyecto_ETL_TB181979\Control_Ventas.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{29762838-F513-464D-9A30-66AE5BF2564E}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=MARVIN-PC;Initial Catalog=Control_Ventas;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tarea de SQL Preparación 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{5075046E-7948-4F2B-BB41-20DB3BB8D9E1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea de SQL Preparación 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8ABF5796-B8DF-40CB-85F1-7D7F03DB2FCA}"
+          SQLTask:SqlStatementSource="CREATE TABLE `Consulta` (&#xA;`PedidoID` Long,&#xA;`Nombre_Tienda` LongText,&#xA;`Nombre_Territorio` LongText,&#xA;`Codigo_Pais` VarChar(2),&#xA;`Fecha_Pedido` DateTime,&#xA;`Nombre_Producto` LongText,&#xA;`Precio_Unitario` Currency,&#xA;`Descuento_PrecioUnitario` Double,&#xA;`Cantidad_Pedido` Long&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{1B47C9B1-B06F-4889-879D-6BA2CAFF5E8F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos 0 - 0"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Entrada de conversión de datos].Columns[Nombre_Tienda]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Nombre_Tienda"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Nombre_Tienda]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Entrada de conversión de datos].Columns[Nombre_Territorio]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Nombre_Territorio"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Nombre_Territorio]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Entrada de conversión de datos].Columns[Codigo_Pais]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Codigo_Pais"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Codigo_Pais]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Entrada de conversión de datos].Columns[Nombre_Producto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Nombre_Producto"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Nombre_Producto]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Salida de conversión de datos].Columns[Nombre_Tienda]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Salida de conversión de datos].Columns[Nombre_Tienda]"
+                      name="Nombre_Tienda"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Nombre_Tienda]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Salida de conversión de datos].Columns[Nombre_Territorio]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Salida de conversión de datos].Columns[Nombre_Territorio]"
+                      name="Nombre_Territorio"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Nombre_Territorio]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Salida de conversión de datos].Columns[Codigo_Pais]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="2"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Salida de conversión de datos].Columns[Codigo_Pais]"
+                      name="Codigo_Pais"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Codigo_Pais]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Salida de conversión de datos].Columns[Nombre_Producto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Salida de conversión de datos].Columns[Nombre_Producto]"
+                      name="Nombre_Producto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Nombre_Producto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos 1\Destino - Consulta"
+              componentClassID="Microsoft.ExcelDestination"
+              contactInfo="Destino de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Destino de Excel"
+              name="Destino - Consulta"
+              usesDispositions="true"
+              validateExternalMetadata="False">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">Consulta</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionExcel]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionExcel]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].Columns[PedidoID]"
+                      cachedDataType="i4"
+                      cachedName="PedidoID"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].ExternalColumns[PedidoID]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[PedidoID]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].Columns[Nombre_Tienda]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Nombre_Tienda"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].ExternalColumns[Nombre_Tienda]"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Salida de conversión de datos].Columns[Nombre_Tienda]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].Columns[Nombre_Territorio]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Nombre_Territorio"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].ExternalColumns[Nombre_Territorio]"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Salida de conversión de datos].Columns[Nombre_Territorio]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].Columns[Codigo_Pais]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="Codigo_Pais"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].ExternalColumns[Codigo_Pais]"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Salida de conversión de datos].Columns[Codigo_Pais]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].Columns[Fecha_Pedido]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha_Pedido"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].ExternalColumns[Fecha_Pedido]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Fecha_Pedido]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].Columns[Nombre_Producto]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Nombre_Producto"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].ExternalColumns[Nombre_Producto]"
+                      lineageId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Salida de conversión de datos].Columns[Nombre_Producto]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].Columns[Precio_Unitario]"
+                      cachedDataType="cy"
+                      cachedName="Precio_Unitario"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].ExternalColumns[Precio_Unitario]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Precio_Unitario]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].Columns[Descuento_PrecioUnitario]"
+                      cachedDataType="r8"
+                      cachedName="Descuento_PrecioUnitario"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].ExternalColumns[Descuento_PrecioUnitario]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Descuento_PrecioUnitario]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].Columns[Cantidad_Pedido]"
+                      cachedDataType="i4"
+                      cachedName="Cantidad_Pedido"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].ExternalColumns[Cantidad_Pedido]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Cantidad_Pedido]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].ExternalColumns[PedidoID]"
+                      dataType="i4"
+                      name="PedidoID" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].ExternalColumns[Nombre_Tienda]"
+                      dataType="wstr"
+                      length="100"
+                      name="Nombre_Tienda" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].ExternalColumns[Nombre_Territorio]"
+                      dataType="wstr"
+                      length="30"
+                      name="Nombre_Territorio" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].ExternalColumns[Codigo_Pais]"
+                      dataType="wstr"
+                      length="2"
+                      name="Codigo_Pais" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].ExternalColumns[Fecha_Pedido]"
+                      dataType="dbTimeStamp"
+                      name="Fecha_Pedido" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].ExternalColumns[Nombre_Producto]"
+                      dataType="wstr"
+                      length="100"
+                      name="Nombre_Producto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].ExternalColumns[Precio_Unitario]"
+                      dataType="cy"
+                      name="Precio_Unitario" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].ExternalColumns[Descuento_PrecioUnitario]"
+                      dataType="r8"
+                      name="Descuento_PrecioUnitario" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input].ExternalColumns[Cantidad_Pedido]"
+                      dataType="i4"
+                      name="Cantidad_Pedido" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Outputs[Salida de error de destino de Excel]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de Excel"
+                  synchronousInputId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos 1\Destino - Consulta.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Destino - Consulta.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos 1\Destino - Consulta.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos 1\Origen - Consulta"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen - Consulta"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Consulta]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[PedidoID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].ExternalColumns[PedidoID]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[PedidoID]"
+                      name="PedidoID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Nombre_Tienda]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Tienda]"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Nombre_Tienda]"
+                      name="Nombre_Tienda"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Nombre_Territorio]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Territorio]"
+                      length="30"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Nombre_Territorio]"
+                      name="Nombre_Territorio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Codigo_Pais]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].ExternalColumns[Codigo_Pais]"
+                      length="2"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Codigo_Pais]"
+                      name="Codigo_Pais"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Fecha_Pedido]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha_Pedido]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Fecha_Pedido]"
+                      name="Fecha_Pedido"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Nombre_Producto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Producto]"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Nombre_Producto]"
+                      name="Nombre_Producto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Precio_Unitario]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].ExternalColumns[Precio_Unitario]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Precio_Unitario]"
+                      name="Precio_Unitario"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Descuento_PrecioUnitario]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].ExternalColumns[Descuento_PrecioUnitario]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Descuento_PrecioUnitario]"
+                      name="Descuento_PrecioUnitario"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Cantidad_Pedido]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].ExternalColumns[Cantidad_Pedido]"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].Columns[Cantidad_Pedido]"
+                      name="Cantidad_Pedido"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].ExternalColumns[PedidoID]"
+                      dataType="i4"
+                      name="PedidoID" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Tienda]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Nombre_Tienda" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Territorio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Nombre_Territorio" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].ExternalColumns[Codigo_Pais]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Codigo_Pais" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha_Pedido]"
+                      dataType="dbTimeStamp"
+                      name="Fecha_Pedido" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Producto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Nombre_Producto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].ExternalColumns[Precio_Unitario]"
+                      dataType="cy"
+                      name="Precio_Unitario" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].ExternalColumns[Descuento_PrecioUnitario]"
+                      dataType="r8"
+                      name="Descuento_PrecioUnitario" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB].ExternalColumns[Cantidad_Pedido]"
+                      dataType="i4"
+                      name="Cantidad_Pedido" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[PedidoID]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[PedidoID]"
+                      name="PedidoID" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Tienda]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Tienda]"
+                      name="Nombre_Tienda" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Territorio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Territorio]"
+                      name="Nombre_Territorio" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[Codigo_Pais]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[Codigo_Pais]"
+                      name="Codigo_Pais" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[Fecha_Pedido]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[Fecha_Pedido]"
+                      name="Fecha_Pedido" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Producto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Producto]"
+                      name="Nombre_Producto" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[Precio_Unitario]"
+                      dataType="cy"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[Precio_Unitario]"
+                      name="Precio_Unitario" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[Descuento_PrecioUnitario]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[Descuento_PrecioUnitario]"
+                      name="Descuento_PrecioUnitario" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[Cantidad_Pedido]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[Cantidad_Pedido]"
+                      name="Cantidad_Pedido" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarea Flujo de datos 1.Paths[Salida de conversión de datos]"
+              endId="Package\Tarea Flujo de datos 1\Destino - Consulta.Inputs[Destination Input]"
+              name="Salida de conversión de datos"
+              startId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Tarea Flujo de datos 1.Paths[Salida de origen de OLE DB]"
+              endId="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Tarea Flujo de datos 1\Origen - Consulta.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{CEF19E03-94BD-4CA4-AA8B-4C0D22797182\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{CEF19E03-94BD-4CA4-AA8B-4C0D22797182}"
+      DTS:From="Package\Tarea de SQL Preparación 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{CEF19E03-94BD-4CA4-AA8B-4C0D22797182}"
+      DTS:To="Package\Tarea Flujo de datos 1" />
+  </DTS:PrecedenceConstraints>
+</DTS:Executable>
