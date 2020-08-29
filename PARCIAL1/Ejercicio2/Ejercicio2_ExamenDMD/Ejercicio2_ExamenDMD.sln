@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Ejercicio2_ExamenDMD", "Ejercicio2_ExamenDMD.dtproj", "{24999B8B-863C-43BD-88D8-A641B60AD706}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24999B8B-863C-43BD-88D8-A641B60AD706}.Development|Default.ActiveCfg = Development
+		{24999B8B-863C-43BD-88D8-A641B60AD706}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
