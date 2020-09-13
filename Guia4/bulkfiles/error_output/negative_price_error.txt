@@ -1,0 +1,21 @@
+Misceláneos,Ábaco,Sin Marca,1,Unidades,-1.25,Librería EDUCA, Soyapango,2a Av. Sur N° 1, Soyapango,San Salvador,Soyapango,5/1/2018,2018-05-01
+Misceláneos,Ábaco,Sin Marca,1,Unidades,-0.75,Librería y Papelería Energy 3,Calle Libertad entre 4a y 6a Avenida Sur # 3,Santa Ana,Santa Ana,5/1/2018,2018-05-01
+Misceláneos,Ábaco,Sin Marca,1,Unidades,-3,Mercado de Santa Ana,,Santa Ana,Santa Ana,5/1/2018,2018-05-01
+Misceláneos,Ábaco,Sin Marca,1,Unidades,-1.25,Librería EDUCA, Soyapango,2a Av. Sur N° 1, Soyapango,San Salvador,Soyapango,5/1/2018,2018-05-01
+Misceláneos,Ábaco,Sin Marca,1,Unidades,-0.75,Librería y Papelería Energy 3,Calle Libertad entre 4a y 6a Avenida Sur # 3,Santa Ana,Santa Ana,5/1/2018,2018-05-01
+Misceláneos,Ábaco,Sin Marca,1,Unidades,-3,Mercado de Santa Ana,,Santa Ana,Santa Ana,5/1/2018,2018-05-01
+Misceláneos,Borrador Suave, unidad (6 cm),Sin Marca,1,Unidades,-0.35,Libreria Karlita Ahuachapan,4a Calle Poniente numero 1- 14 A Ahuachapan ,Ahuachapan,Ahuachapan,5/1/2018,2018-05-01
+Misceláneos,Borrador Suave, unidad (6 cm),Sin Marca,1,Unidades,-0.25,Librería Karlita, Chalchuapa,2a Calle Oriente No 11 Barrio Las Ánimas,Santa Ana,Chalchuapa,5/1/2018,2018-05-01
+Misceláneos,Caja de crayones, 12 unidades (aproximado 9.2 cm),Sin Marca,1,Unidades,-1.75,Zona Centro, calle Ruben Dario, Hula Hula,Zona Centro, calle Ruben Dario, Hula Hula,San Salvador,San Salvador,5/1/2018,2018-05-01
+Misceláneos,Caja de Fastener (50 sets),Sin Marca,1,Unidades,-1.85,Librería y Papelería Energy 3,Calle Libertad entre 4a y 6a Avenida Sur # 3,Santa Ana,Santa Ana,5/1/2018,2018-05-01
+Misceláneos,Caja de plastilina, 10 barritas (colores surtidos),Sin Marca,1,Unidades,-0.54,Huguet, S.A. De C.V.,3a. Av. Norte No.103, Barrio. La Merced,San Miguel,San Miguel,5/1/2018,2018-05-01
+Misceláneos,Caja de plastilina, 10 barritas (colores surtidos),Sin Marca,1,Unidades,-0.6,Librería Escolar 1a Calle Oriente,1a Calle Oriente N° 115-A,San Salvador,San Salvador,5/1/2018,2018-05-01
+Misceláneos,Ábaco,Sin Marca,1,Unidades,-1.25,Librería EDUCA, Soyapango,2a Av. Sur N° 1, Soyapango,San Salvador,Soyapango,5/1/2018,2018-05-01
+Misceláneos,Ábaco,Sin Marca,1,Unidades,-0.75,Librería y Papelería Energy 3,Calle Libertad entre 4a y 6a Avenida Sur # 3,Santa Ana,Santa Ana,5/1/2018,2018-05-01
+Misceláneos,Ábaco,Sin Marca,1,Unidades,-3,Mercado de Santa Ana,,Santa Ana,Santa Ana,5/1/2018,2018-05-01
+Misceláneos,Borrador Suave, unidad (6 cm),Sin Marca,1,Unidades,-0.35,Libreria Karlita Ahuachapan,4a Calle Poniente numero 1- 14 A Ahuachapan ,Ahuachapan,Ahuachapan,5/1/2018,2018-05-01
+Misceláneos,Borrador Suave, unidad (6 cm),Sin Marca,1,Unidades,-0.25,Librería Karlita, Chalchuapa,2a Calle Oriente No 11 Barrio Las Ánimas,Santa Ana,Chalchuapa,5/1/2018,2018-05-01
+Misceláneos,Caja de crayones, 12 unidades (aproximado 9.2 cm),Sin Marca,1,Unidades,-1.75,Zona Centro, calle Ruben Dario, Hula Hula,Zona Centro, calle Ruben Dario, Hula Hula,San Salvador,San Salvador,5/1/2018,2018-05-01
+Misceláneos,Caja de Fastener (50 sets),Sin Marca,1,Unidades,-1.85,Librería y Papelería Energy 3,Calle Libertad entre 4a y 6a Avenida Sur # 3,Santa Ana,Santa Ana,5/1/2018,2018-05-01
+Misceláneos,Caja de plastilina, 10 barritas (colores surtidos),Sin Marca,1,Unidades,-0.54,Huguet, S.A. De C.V.,3a. Av. Norte No.103, Barrio. La Merced,San Miguel,San Miguel,5/1/2018,2018-05-01
+Misceláneos,Caja de plastilina, 10 barritas (colores surtidos),Sin Marca,1,Unidades,-0.6,Librería Escolar 1a Calle Oriente,1a Calle Oriente N° 115-A,San Salvador,San Salvador,5/1/2018,2018-05-01
